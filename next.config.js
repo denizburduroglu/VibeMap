@@ -1,15 +1,9 @@
 /** @type {import('next').NextConfig} */
 
-const webpack = require("webpack");
-const { parsed: myEnv } = require("dotenv").config({
-	path: "./.env.local",
-});
-const nextConfig = {
-	webpack(config) {
-		config.plugins.push(new webpack.EnvironmentPlugin(myEnv));
-		return config;
-	},
+const nextConfig = { 
+	env: {
+		GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
+	}
 };
-
 
 module.exports = nextConfig;
